@@ -1,0 +1,36 @@
+﻿using project.Game;
+
+namespace project.Models;
+
+public class Item
+{
+    public int ItemId { get; set; }
+    public string? Name { get; set; }
+    public string? SpriteUrl { get; set; }
+    public Element Element { get; set; }
+    public int DmgMin { get; set; }
+    public int DmgMax { get; set; }
+    public Game.Item.EType Type { get; set; }
+
+    public Item()
+    {
+    }
+
+    public Item(string name, string spriteUrl, int dmgMin, int dmgMax, Element element)
+    {
+        Name = name;
+        SpriteUrl = spriteUrl;
+        DmgMin = dmgMin;
+        DmgMax = dmgMax;
+        Element = element;
+        Type = Game.Item.EType.Weapon;
+    }
+
+    public Item(string name, string spriteUrl, int healAmount)
+    {
+        Name = name;
+        SpriteUrl = spriteUrl;
+        DmgMin = DmgMax = healAmount;
+        Type = Game.Item.EType.Heal;
+    }
+}

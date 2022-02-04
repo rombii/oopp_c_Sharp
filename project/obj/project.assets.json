@@ -8,26 +8,23 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ibmorr\\.nuget\\packages\\": {}
+    "C:\\Users\\jakub\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ibmorr\\RiderProjects\\project\\project\\project.csproj",
+      "projectUniqueName": "D:\\po2projektc#\\project\\project.csproj",
       "projectName": "project",
-      "projectPath": "C:\\Users\\ibmorr\\RiderProjects\\project\\project\\project.csproj",
-      "packagesPath": "C:\\Users\\ibmorr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ibmorr\\RiderProjects\\project\\project\\obj\\",
+      "projectPath": "D:\\po2projektc#\\project\\project.csproj",
+      "packagesPath": "C:\\Users\\jakub\\.nuget\\packages\\",
+      "outputPath": "D:\\po2projektc#\\project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ibmorr\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\jakub\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0-windows"
       ],
-      "sources": {
-        "https://api.nuget.org/v3/index.json": {}
-      },
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
@@ -61,7 +58,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\ibmorr\\.dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\jakub\\.dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
