@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:project"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <TextBlock>Gaming</TextBlock>
+        <Button Click="ButtonGame_OnClick">Gaming</Button>
+        <Button Click="ButtonEditor_OnClick">Editing</Button>
+        <Button Click="ButtonExit_OnClick">Exiting</Button>
+    </StackPanel>
 </Window>

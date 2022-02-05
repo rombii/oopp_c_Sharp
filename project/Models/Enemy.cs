@@ -1,4 +1,5 @@
-﻿using project.Game;
+﻿using System;
+using project.Game;
 
 namespace project.Models;
 
@@ -6,7 +7,7 @@ public class Enemy
 {
     public int EnemyId { get; set; }
     public string? Name { get; set; }
-    public string? Sprite { get; set; }
+    public Uri? Sprite { get; set; }
     public Element? Element { get; set; }
     public int Health { get; set; }
     public int DmgMin { get; set; }
@@ -17,7 +18,7 @@ public class Enemy
     {
     }
 
-    public Enemy(string? name, string? sprite, int health, int dmgMin, int dmgMax, Item item, Element element)
+    public Enemy(string? name, Uri? sprite, int health, int dmgMin, int dmgMax, Item item, Element element)
     {
         Name = name;
         Sprite = sprite;

@@ -18,23 +18,19 @@ public class Item : Entity
     public int DmgMax { get; }
     
     //Konstruktor dla itemów leczących
-    public Item(string name, string sprite, int healAmount) : base(sprite)
+    public Item(string name, Uri sprite, int healAmount) : base(sprite)
     {
         Name = name;
         DmgMin = DmgMax = healAmount;
         Type = EType.Heal;
     }
     //Konstruktor dla broni
-    public Item(string name, string sprite, int dmgMin, int dmgMax) : base(sprite)
+    public Item(string name, Uri sprite, int dmgMin, int dmgMax, Element? element = null) : base(sprite)
     {
         Name = name;
         DmgMin = dmgMin;
         DmgMax = dmgMax;
         Type = EType.Weapon;
-    }
-
-    public Item(string name, string sprite, int dmgMin, int dmgMax, Element element) : this(name, sprite, dmgMin, dmgMax)
-    {
         Element = element;
     }
 

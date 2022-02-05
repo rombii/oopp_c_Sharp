@@ -1,4 +1,5 @@
-﻿using project.Game;
+﻿using System;
+using project.Game;
 
 namespace project.Models;
 
@@ -6,7 +7,7 @@ public class Item
 {
     public int ItemId { get; set; }
     public string? Name { get; set; }
-    public string? SpriteUrl { get; set; }
+    public Uri? SpriteUrl { get; set; }
     public Element Element { get; set; }
     public int DmgMin { get; set; }
     public int DmgMax { get; set; }
@@ -16,7 +17,7 @@ public class Item
     {
     }
 
-    public Item(string name, string spriteUrl, int dmgMin, int dmgMax, Element element)
+    public Item(string name, Uri spriteUrl, int dmgMin, int dmgMax, Element element)
     {
         Name = name;
         SpriteUrl = spriteUrl;
@@ -26,7 +27,7 @@ public class Item
         Type = Game.Item.EType.Weapon;
     }
 
-    public Item(string name, string spriteUrl, int healAmount)
+    public Item(string name, Uri spriteUrl, int healAmount)
     {
         Name = name;
         SpriteUrl = spriteUrl;

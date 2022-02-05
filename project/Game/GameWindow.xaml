@@ -1,0 +1,30 @@
+﻿<Window x:Class="project.Game.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:project.Game"
+        mc:Ignorable="d"
+        Title="GameWindow" Height="450" Width="800"
+        KeyDown="GameWindow_OnKeyDown">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <UniformGrid Grid.Row="1" Grid.Column="1" Columns="9" Rows="9" x:Name="MainGrid"></UniformGrid>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" x:Name="InvGrid"></StackPanel>
+        <TextBlock Grid.Row="0" Grid.Column="1" x:Name="LogBox"></TextBlock>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" x:Name="InfoBox">
+            <TextBlock x:Name="HpText"></TextBlock>
+            <TextBlock x:Name="ItemText"></TextBlock>
+            <Image x:Name="ElementImg" Visibility="Hidden"></Image>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -5,40 +5,23 @@ namespace project.Game;
 public class Enemy : Mob
 {
     private static int _counter = 0;
-    private readonly int _enemyId = _counter++;
+    public int Id { get; } = _counter++;
     public string? Name { get; }
     public Item? Carrying { get; private set; }
     public Element? Element { get; }
     public int DmgMin { get; }
     public int DmgMax { get; }
 
-    public Enemy(string name, string sprite, int hp, int dmgMin, int dmgMax, int x, int y) : base(sprite, hp, x, y)
+    public Enemy(string name, Uri sprite, int hp, int dmgMin, int dmgMax, int x, int y, GameWindow game, Element? element = null,  Item? item = null) : base(sprite, hp, x, y, game)
     {
         Name = name;
         DmgMin = dmgMin;
         DmgMax = dmgMax;
-    }
-
-    public Enemy(string name, string sprite, int hp, int dmgMin, int dmgMax, int x, int y, Element element) : this(name,
-        sprite, hp, dmgMin, dmgMax, x, y)
-    {
         Element = element;
+        Carrying = item;
     }
 
-    public Enemy(string name, string sprite, int hp, int dmgMin, int dmgMax, int x, int y, Item carrying) : this(name,
-        sprite, hp, dmgMin, dmgMax, x, y)
-    {
-        Carrying = carrying;
-    }
-
-    public Enemy(string name, string sprite, int hp, int dmgMin, int dmgMax, int x, int y, Element element,
-        Item carrying) : this(name, sprite, hp, dmgMin, dmgMax, x, y)
-    {
-        Element = element;
-        Carrying = carrying;
-    }
-
-    public Enemy(Models.Enemy model, int x, int y) : base(model.Sprite, model.Health, x, y)
+    public Enemy(Models.Enemy model, int x, int y, GameWindow game) : base(model.Sprite, model.Health, x, y, game)
     {
         Name = model.Name;
         DmgMin = model.DmgMin;
@@ -78,11 +61,29 @@ public class Enemy : Mob
     public override void Pickup(Item item)
     {
         if (Carrying == null) Carrying = item;
-        //TODO else Drop(item);
+        else Drop(item);
     }
 
     public override void Interact(int x, int y)
     {
-        //TODO
+        if (x == _game.Player.X && y == _game.Player.Y)
+        {
+            _game.Player.TakeDmg(GetDmg());
+            if (_game.Player.Hp == 0)
+            {
+                _game.Player = null;
+                _game.EntityTable[x, y] = new Entity();
+                //TODO _game.SetGameOver();
+            }
+        }
+        else if (_game.EntityTable[x, y] is Item)
+        {
+            var temp = (Item) _game.EntityTable[x, y];
+            Teleport(x, y);
+            if (Carrying != null)
+                Drop(temp);
+            else
+                Carrying = temp;
+        }
     }
 }

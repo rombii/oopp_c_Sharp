@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using project.Game;
 
 namespace project
 {
@@ -23,6 +24,21 @@ namespace project
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ButtonGame_OnClick(object sender, RoutedEventArgs e)
+        {
+            new GameWindow().Show();
+        }
+
+        private void ButtonEditor_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ButtonExit_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
