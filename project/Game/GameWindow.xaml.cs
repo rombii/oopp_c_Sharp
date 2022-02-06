@@ -13,6 +13,7 @@ public partial class GameWindow : Window
     public Entity[,] EntityTable = new Entity[9, 9];
     public Player? Player;
     public int MoveCounter;
+    private string path = Environment.CurrentDirectory.Remove(Environment.CurrentDirectory.Length - 25) + "/";
 
     private void AddEnemy()
     {
@@ -29,7 +30,7 @@ public partial class GameWindow : Window
             newEnemyY = random.Next(9);
         } while (newEnemyY == Player.Y);
 
-        new Enemy("Ork", new Uri("res/img/enemy.png", UriKind.Relative), 20, 3, 5, newEnemyX, newEnemyY, this);
+        new Enemy("Ork", new Uri(path + "res/img/enemy.png", UriKind.RelativeOrAbsolute), 20, 3, 5, newEnemyX, newEnemyY, this);
     }
 
     private void AddItem()
@@ -47,7 +48,7 @@ public partial class GameWindow : Window
             newItemY = random.Next(9);
         } while (newItemY == Player.Y);
 
-        EntityTable[newItemX, newItemY] = new Item("Mikstura", new Uri("res/img/potion.png", UriKind.Relative), 20);
+        EntityTable[newItemX, newItemY] = new Item("Mikstura", new Uri(path + "res/img/potion.png", UriKind.RelativeOrAbsolute), 20);
     }
 
     private void RedrawGrid()
@@ -59,7 +60,7 @@ public partial class GameWindow : Window
             {
                 var box = new Image
                 {
-                    Source = EntityTable[i, j].Sprite
+                    Source = EntityTable[j, i].Sprite
                 };
                 MainGrid.Children.Add(box);
             }
@@ -73,7 +74,7 @@ public partial class GameWindow : Window
         for (var i = 0; i < 10; i++)
         {
             var box = new Image();
-            box.Source = Player.Inventory[i] == null ? new BitmapImage(new Uri("res/img/empty.png", UriKind.Relative)) : Player.Inventory[i].Sprite;
+            box.Source = Player.Inventory[i] == null ? new BitmapImage(new Uri(path + "res/img/empty.png", UriKind.RelativeOrAbsolute)) : Player.Inventory[i].Sprite;
             if (i == Player.EquippedItemId)
             {
                 var border = new Border();
@@ -166,8 +167,8 @@ public partial class GameWindow : Window
                 EntityTable[i, j] = new Entity();
         }
 
-        Player = new Player(new Uri("res/img/player.png", UriKind.Relative), 100, this);
-        var startWpn = new Item("Miecz", new Uri("res/img/sword.png", UriKind.Relative), 5, 10);
+        Player = new Player(new Uri(path + "res/img/player.png", UriKind.RelativeOrAbsolute), 100, this);
+        var startWpn = new Item("Miecz", new Uri(path + "res/img/sword.png", UriKind.RelativeOrAbsolute), 5, 10);
         Player.Pickup(startWpn);
         HpText.Text = "HP: " + Player.Hp;
         ItemText.Text = Player.EquippedItem.Name + "\nObrażenia: " + Player.EquippedItem.DmgMin + "-" +
