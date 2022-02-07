@@ -1,11 +1,14 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows.Media.Imaging;
 
 namespace project.Game;
 
 public class Element
 {
-    public int ElementId { get; private set; }
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ElementId { get; set; }
     public string? Name { get; set; }
     public string? SpriteUrl { get; set; }
     public int WeakToId { get; set; } = -1;

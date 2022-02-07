@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using project.Editor;
 using project.Game;
 
 namespace project
@@ -33,7 +34,7 @@ namespace project
 
         private void ButtonEditor_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            new EditorWindow().Show();
         }
 
         private void ButtonExit_OnClick(object sender, RoutedEventArgs e)

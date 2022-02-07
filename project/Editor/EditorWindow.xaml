@@ -1,0 +1,42 @@
+﻿<Window x:Class="project.Editor.EditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:project"
+        mc:Ignorable="d"
+        Title="EditorWindow" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="Wrogowie">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Button Click="ButtonAddEnemy_OnClick">Dodaj</Button>
+                    <Button Click="ButtonEditEnemy_OnClick">Edytuj zaznaczony</Button>
+                    <Button Click="ButtonDeleteEnemy_OnClick">Usuń zaznaczony</Button>
+                </StackPanel>
+                <DataGrid x:Name="EnemyTable"></DataGrid>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Przedmioty">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Button Click="ButtonAddWpn_OnClick">Dodaj broń</Button>
+                    <Button>Dodaj przedmiot</Button>
+                    <Button>Edytuj zaznaczony</Button>
+                    <Button>Usuń zaznaczony</Button>
+                </StackPanel>
+                <DataGrid x:Name="ItemTable"></DataGrid>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Elementy">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Button>Dodaj</Button>
+                    <Button>Edytuj zaznaczony</Button>
+                    <Button>Usuń zaznaczony</Button>
+                </StackPanel>
+                <DataGrid x:Name="ElementTable"></DataGrid>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+</Window>
