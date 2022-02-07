@@ -18,7 +18,7 @@ public class Entity
         Empty = false;
     }
 
-    public Entity() : this(new Uri(Environment.CurrentDirectory.Remove(Environment.CurrentDirectory.Length - 25) + "/" + "res/img/empty.png", UriKind.RelativeOrAbsolute)) //Puste pole
+    public Entity() : this(new Uri(Environment.CurrentDirectory.Remove(Environment.CurrentDirectory.Length - 25) + "/" + "res/img/emptyO.png", UriKind.RelativeOrAbsolute)) //Puste pole
     {
         Empty = true;
     }

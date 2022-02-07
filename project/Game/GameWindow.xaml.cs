@@ -74,7 +74,7 @@ public partial class GameWindow : Window
         for (var i = 0; i < 10; i++)
         {
             var box = new Image();
-            box.Source = Player.Inventory[i] == null ? new BitmapImage(new Uri(path + "res/img/empty.png", UriKind.RelativeOrAbsolute)) : Player.Inventory[i].Sprite;
+            box.Source = Player.Inventory[i] == null ? new BitmapImage(new Uri(path + "res/img/emptyO.png", UriKind.RelativeOrAbsolute)) : Player.Inventory[i].Sprite;
             if (i == Player.EquippedItemId)
             {
                 var border = new Border();

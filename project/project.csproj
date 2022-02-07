@@ -17,4 +17,15 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="res\fonts\Minecraft.ttf" />
+      <Resource Include="res\fonts\Minecraft.ttf" />
+      <None Remove="res\img\potion.png" />
+      <Resource Include="res\img\potion.png" />
+      <None Remove="res\img\buttonbg.png" />
+      <Resource Include="res\img\buttonbg.png" />
+      <None Remove="res\img\background.png" />
+      <Resource Include="res\img\background.png" />
+    </ItemGroup>
+
 </Project>

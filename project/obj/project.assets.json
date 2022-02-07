@@ -5227,19 +5227,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jakub\\.nuget\\packages\\": {}
+    "C:\\Users\\ibmorr\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\po2projektc#\\project\\project.csproj",
+      "projectUniqueName": "C:\\Users\\ibmorr\\RiderProjects\\project\\project\\project.csproj",
       "projectName": "project",
-      "projectPath": "D:\\po2projektc#\\project\\project.csproj",
-      "packagesPath": "C:\\Users\\jakub\\.nuget\\packages\\",
-      "outputPath": "D:\\po2projektc#\\project\\obj\\",
+      "projectPath": "C:\\Users\\ibmorr\\RiderProjects\\project\\project\\project.csproj",
+      "packagesPath": "C:\\Users\\ibmorr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ibmorr\\RiderProjects\\project\\project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jakub\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ibmorr\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0-windows"
@@ -5300,7 +5300,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\ibmorr\\.dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

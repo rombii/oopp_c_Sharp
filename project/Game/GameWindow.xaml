@@ -5,8 +5,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:project.Game"
         mc:Ignorable="d"
-        Title="GameWindow" Height="450" Width="800"
-        KeyDown="GameWindow_OnKeyDown">
+        Title="GameWindow" Height="550" Width="800"
+        KeyDown="GameWindow_OnKeyDown"
+        Background="#282633"
+        Foreground="White"
+        FontFamily="/res/fonts/#Minecraft">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -18,9 +21,24 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <UniformGrid Grid.Row="1" Grid.Column="1" Columns="9" Rows="9" x:Name="MainGrid"></UniformGrid>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" x:Name="InvGrid"></StackPanel>
-        <TextBlock Grid.Row="0" Grid.Column="1" x:Name="LogBox"></TextBlock>
+        <Canvas Grid.Row="1" Grid.Column="1"
+                Width="288"
+                Height="388"
+                Margin="-200 -155 0 0">
+            <UniformGrid Columns="9" Rows="9" x:Name="MainGrid"
+                         Width="288"
+                         Height="288"
+                         VerticalAlignment="Top">
+            </UniformGrid>
+                <Canvas.Background>
+                    <ImageBrush ImageSource="/res/img/background.png" Stretch="None" AlignmentX="Left" AlignmentY="Top"><ImageBrush.Transform><ScaleTransform ScaleX="1.66" ScaleY="1.66"></ScaleTransform></ImageBrush.Transform></ImageBrush>
+                </Canvas.Background>
+        </Canvas>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" x:Name="InvGrid"
+                    Height="40"
+                    VerticalAlignment="Center"
+                    Margin="-190 90 0 0"></StackPanel>
+        <TextBlock Grid.Row="0" Grid.Column="1" x:Name="LogBox" Margin="0 20 -450 0" Width="300"></TextBlock>
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" x:Name="InfoBox">
             <TextBlock x:Name="HpText"></TextBlock>
             <TextBlock x:Name="ItemText"></TextBlock>

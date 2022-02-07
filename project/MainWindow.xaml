@@ -5,11 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:project"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="800"
+        Background="#282633"
+        Foreground="White"
+        FontFamily="res/fonts/#Minecraft">
     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-        <TextBlock>Gaming</TextBlock>
-        <Button Click="ButtonGame_OnClick">Gaming</Button>
-        <Button Click="ButtonEditor_OnClick">Editing</Button>
-        <Button Click="ButtonExit_OnClick">Exiting</Button>
+        <TextBlock FontSize="96">Elves vs Orcs</TextBlock>
+        <Button Click="ButtonGame_OnClick" Width="340" Height="40" Padding="0" Foreground="White"><Grid><Image Source="res/img/buttonbg.png" Stretch="Fill"></Image><TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24">Start</TextBlock></Grid></Button>
+        <Button Click="ButtonEditor_OnClick" Width="340" Height="40" Padding="0" Foreground="White"><Grid><Image Source="res/img/buttonbg.png" Stretch="Fill"></Image><TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24">Edit</TextBlock></Grid></Button>
+        <Button Click="ButtonExit_OnClick" Width="340" Height="40" Padding="0" Foreground="White"><Grid><Image Source="res/img/buttonbg.png" Stretch="Fill"></Image><TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24">Exit</TextBlock></Grid></Button>
     </StackPanel>
 </Window>
