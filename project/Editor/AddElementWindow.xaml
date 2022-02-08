@@ -19,7 +19,7 @@
         <StackPanel Orientation="Horizontal">
             <Label>ID Mocne przeciw</Label> <TextBox x:Name="TextStrongToID" Width="100"></TextBox>
         </StackPanel>
-        <Button Click="ButtonSave_OnClick">Zapisz</Button>
-        <Button Click="ButtonCancel_OnClick">Zapisz</Button>
+        <Button Click="ButtonSave_OnClick" HorizontalAlignment="Left">Zapisz</Button>
+        <Button Click="ButtonCancel_OnClick" HorizontalAlignment="Left">Anuluj</Button>
     </StackPanel>
 </Window>
