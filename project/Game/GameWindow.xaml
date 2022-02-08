@@ -42,7 +42,7 @@
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" x:Name="InfoBox">
             <TextBlock x:Name="HpText"></TextBlock>
             <TextBlock x:Name="ItemText"></TextBlock>
-            <Image x:Name="ElementImg" Visibility="Hidden"></Image>
+            <Image x:Name="ElementImg" Visibility="Hidden" Width="32" Height="32" Margin="-105 -10 0 0"></Image>
         </StackPanel>
     </Grid>
 </Window>

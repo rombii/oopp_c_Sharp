@@ -19,7 +19,6 @@ public partial class GameWindow : Window
     private List<Models.Enemy> _enemies;
     private List<Models.Item> _items;
     private string path = Environment.CurrentDirectory.Remove(Environment.CurrentDirectory.Length - 25) + "/";
-
     private void AddEnemy()
     {
         if (Player == null) return;

@@ -5,21 +5,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:project.Editor"
         mc:Ignorable="d"
-        Title="AddElementWindow" Height="450" Width="800">
+        Title="AddElementWindow" Height="450" Width="800"
+        Background="#282633"
+        Foreground="White"
+        FontFamily="/res/fonts/#Minecraft">
     <StackPanel Orientation="Vertical">
         <StackPanel Orientation="Horizontal">
-            <Label>Nazwa</Label> <TextBox x:Name="TextName" Width="100"></TextBox>
+            <Label Foreground="White">Nazwa</Label> <TextBox x:Name="TextName" Width="100" Background="#282633" Foreground="White"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label>Sprite</Label> <TextBox x:Name="TextSprite" Width="100"></TextBox>
+            <Label Foreground="White">Sprite</Label> <TextBox x:Name="TextSprite" Width="100" Background="#282633" Foreground="White"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label>ID Słabe przeciw</Label> <TextBox x:Name="TextWeakToID" Width="100"></TextBox>
+            <Label Foreground="White">ID Słabe przeciw</Label> <TextBox x:Name="TextWeakToID" Width="100" Background="#282633" Foreground="White"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label>ID Mocne przeciw</Label> <TextBox x:Name="TextStrongToID" Width="100"></TextBox>
+            <Label Foreground="White">ID Mocne przeciw</Label> <TextBox x:Name="TextStrongToID" Width="100" Background="#282633" Foreground="White"></TextBox>
         </StackPanel>
-        <Button Click="ButtonSave_OnClick" HorizontalAlignment="Left">Zapisz</Button>
-        <Button Click="ButtonCancel_OnClick" HorizontalAlignment="Left">Anuluj</Button>
+        <Button Click="ButtonSave_OnClick" HorizontalAlignment="Left" Background="#282633" Foreground="White">Zapisz</Button>
+        <Button Click="ButtonCancel_OnClick" HorizontalAlignment="Left" Background="#282633" Foreground="White">Anuluj</Button>
     </StackPanel>
 </Window>

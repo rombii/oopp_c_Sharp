@@ -5,37 +5,54 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:project"
         mc:Ignorable="d"
-        Title="EditorWindow" Height="450" Width="800">
-    <TabControl>
-        <TabItem Header="Wrogowie">
+        Title="EditorWindow" Height="450" Width="800"
+        Background="#282633"
+        Foreground="White"
+        FontFamily="/res/fonts/#Minecraft">
+    <Window.Resources>
+        <Style TargetType="{x:Type DataGridCell}">
+            <Setter Property="Background" Value="#282633"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+        <Style TargetType="{x:Type DataGridRow}">
+            <Setter Property="Background" Value="#282633"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Background" Value="#282633"></Setter>
+        </Style>
+    </Window.Resources>
+    <TabControl Background="#282633">
+        <TabItem Header="Wrogowie" Background="#282633" Foreground="#888">
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
-                    <Button Click="ButtonAddEnemy_OnClick">Dodaj</Button>
-                    <Button Click="ButtonEditEnemy_OnClick">Edytuj zaznaczony</Button>
-                    <Button Click="ButtonDeleteEnemy_OnClick">Usuń zaznaczony</Button>
+                    <Button Click="ButtonAddEnemy_OnClick" Background="#282633" Foreground="White">Dodaj</Button>
+                    <Button Click="ButtonEditEnemy_OnClick" Background="#282633" Foreground="White">Edytuj zaznaczony</Button>
+                    <Button Click="ButtonDeleteEnemy_OnClick" Background="#282633" Foreground="White">Usuń zaznaczony</Button>
                 </StackPanel>
-                <DataGrid x:Name="EnemyTable"></DataGrid>
+                <DataGrid x:Name="EnemyTable" Background="#282633"></DataGrid>
             </StackPanel>
         </TabItem>
-        <TabItem Header="Przedmioty">
+        <TabItem Header="Przedmioty" Background="#282633" Foreground="#888">
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
-                    <Button Click="ButtonAddWpn_OnClick">Dodaj broń</Button>
-                    <Button Click="ButtonAddItem_OnClick">Dodaj przedmiot</Button>
-                    <Button Click="ButtonEditItem_OnClick">Edytuj zaznaczony</Button>
-                    <Button Click="ButtonDeleteItem_OnClick">Usuń zaznaczony</Button>
+                    <Button Click="ButtonAddWpn_OnClick" Background="#282633" Foreground="White">Dodaj broń</Button>
+                    <Button Click="ButtonAddItem_OnClick" Background="#282633" Foreground="White">Dodaj przedmiot</Button>
+                    <Button Click="ButtonEditItem_OnClick" Background="#282633" Foreground="White">Edytuj zaznaczony</Button>
+                    <Button Click="ButtonDeleteItem_OnClick" Background="#282633" Foreground="White">Usuń zaznaczony</Button>
                 </StackPanel>
                 <DataGrid x:Name="ItemTable"></DataGrid>
             </StackPanel>
         </TabItem>
-        <TabItem Header="Elementy">
+        <TabItem Header="Elementy" Background="#282633" Foreground="#888">
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
-                    <Button Click="ButtonAddElement_OnClick">Dodaj</Button>
-                    <Button Click="ButtonEditElement_OnClick">Edytuj zaznaczony</Button>
-                    <Button Click="ButtonDeleteElement_OnClick">Usuń zaznaczony</Button>
+                    <Button Click="ButtonAddElement_OnClick" Background="#282633" Foreground="White">Dodaj</Button>
+                    <Button Click="ButtonEditElement_OnClick" Background="#282633" Foreground="White">Edytuj zaznaczony</Button>
+                    <Button Click="ButtonDeleteElement_OnClick" Background="#282633" Foreground="White">Usuń zaznaczony</Button>
                 </StackPanel>
-                <DataGrid x:Name="ElementTable"></DataGrid>
+                <DataGrid x:Name="ElementTable" Background="#282633">
+                </DataGrid>
             </StackPanel>
         </TabItem>
     </TabControl>

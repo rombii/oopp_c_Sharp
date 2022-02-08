@@ -5,27 +5,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:project.Editor"
         mc:Ignorable="d"
-        Title="AddEnemyWindow" Height="450" Width="800">
+        Title="AddEnemyWindow" Height="450" Width="800"
+        Background="#282633"
+        Foreground="White"
+        FontFamily="/res/fonts/#Minecraft">
     <StackPanel Orientation="Vertical">
         <StackPanel Orientation="Horizontal">
-            <Label>Nazwa</Label> <TextBox x:Name="TextName" Width="100"></TextBox>
+            <Label Foreground="White">Nazwa</Label> <TextBox x:Name="TextName" Width="100" Background="#282633" Foreground="White"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label>Sprite</Label> <TextBox x:Name="TextSprite" Width="100"></TextBox>
+            <Label Foreground="White">Sprite</Label> <TextBox x:Name="TextSprite" Width="100" Background="#282633" Foreground="White"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label>Element</Label> <ComboBox x:Name="ComboElement"></ComboBox>
+            <Label Foreground="White">Element</Label> <ComboBox x:Name="ComboElement" Background="#282633" Foreground="Black"></ComboBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label>Zdrowie</Label> <TextBox x:Name="TextHealth" Width="100"></TextBox>
+            <Label Foreground="White">Zdrowie</Label> <TextBox x:Name="TextHealth" Width="100" Background="#282633" Foreground="White"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label>Obrażenia</Label> <TextBox x:Name="TextDmgMin" Width="100"></TextBox><Label>-</Label><TextBox x:Name="TextDmgMax" Width="100"></TextBox>
+            <Label Foreground="White">Obrażenia</Label> <TextBox x:Name="TextDmgMin" Width="100" Background="#282633" Foreground="White"></TextBox><Label Foreground="White">-</Label><TextBox x:Name="TextDmgMax" Width="100" Background="#282633" Foreground="White"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label>Przedmiot</Label> <ComboBox x:Name="ComboPrzedmiot"></ComboBox>
+            <Label Foreground="White">Przedmiot</Label> <ComboBox x:Name="ComboPrzedmiot" Background="#282633" Foreground="Black"></ComboBox>
         </StackPanel>
-        <Button Click="ButtonSave_OnClick" HorizontalAlignment="Left">Zapisz</Button>
-        <Button Click="ButtonCancel_OnClick" HorizontalAlignment="Left">Anuluj</Button>
+        <Button Click="ButtonSave_OnClick" HorizontalAlignment="Left" Background="#282633" Foreground="White">Zapisz</Button>
+        <Button Click="ButtonCancel_OnClick" HorizontalAlignment="Left" Background="#282633" Foreground="White">Anuluj</Button>
     </StackPanel>
 </Window>
