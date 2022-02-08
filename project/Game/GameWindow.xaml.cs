@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Microsoft.EntityFrameworkCore;
 
 namespace project.Game;
 
@@ -13,6 +15,9 @@ public partial class GameWindow : Window
     public Entity[,] EntityTable = new Entity[9, 9];
     public Player? Player;
     public int MoveCounter;
+    private DBContext _context = new DBContext();
+    private List<Models.Enemy> _enemies;
+    private List<Models.Item> _items;
     private string path = Environment.CurrentDirectory.Remove(Environment.CurrentDirectory.Length - 25) + "/";
 
     private void AddEnemy()
@@ -24,13 +29,13 @@ public partial class GameWindow : Window
         {
             newEnemyX = random.Next(9);
         } while (newEnemyX == Player.X);
-
         do
         {
             newEnemyY = random.Next(9);
         } while (newEnemyY == Player.Y);
 
-        new Enemy("Ork", new Uri(path + "res/img/enemy.png", UriKind.RelativeOrAbsolute), 20, 3, 5, newEnemyX, newEnemyY, this);
+        var model = _enemies[random.Next(_enemies.Count)];
+        new Enemy(model, newEnemyX, newEnemyY, this);
     }
 
     private void AddItem()
@@ -48,7 +53,12 @@ public partial class GameWindow : Window
             newItemY = random.Next(9);
         } while (newItemY == Player.Y);
 
-        EntityTable[newItemX, newItemY] = new Item("Mikstura", new Uri(path + "res/img/potion.png", UriKind.RelativeOrAbsolute), 20);
+        Models.Item model;
+        do
+        {
+            model = _items[random.Next(_items.Count)];
+        } while (Player.CheckForWeapon(model));
+        EntityTable[newItemX, newItemY] = new Item(model);
     }
 
     private void RedrawGrid()
@@ -166,6 +176,10 @@ public partial class GameWindow : Window
             for (var j = 0; j < 9; j++)
                 EntityTable[i, j] = new Entity();
         }
+        _context.Enemies.Load();
+        _enemies = _context.Enemies.ToList();
+        _context.Items.Load();
+        _items = _context.Items.ToList();
 
         Player = new Player(new Uri(path + "res/img/player.png", UriKind.RelativeOrAbsolute), 100, this);
         var startWpn = new Item("Miecz", new Uri(path + "res/img/sword.png", UriKind.RelativeOrAbsolute), 5, 10);

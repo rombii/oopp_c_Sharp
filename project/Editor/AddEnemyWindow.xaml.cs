@@ -14,7 +14,9 @@ public partial class AddEnemyWindow : Window
     {
         InitializeComponent();
         ComboElement.ItemsSource = elements;
+        ComboElement.DisplayMemberPath = "Name";
         ComboPrzedmiot.ItemsSource = items;
+        ComboPrzedmiot.DisplayMemberPath = "Name";
         if (enemy == null)
         {
             Enemy = new Enemy();
@@ -36,21 +38,33 @@ public partial class AddEnemyWindow : Window
 
     private void ButtonSave_OnClick(object sender, RoutedEventArgs e)
     {
+        Uri? sprite;
+        int health, dmgMin, dmgMax;
         try
         {
-            Enemy.Sprite = new Uri(TextSprite.Text, UriKind.RelativeOrAbsolute);
-            Enemy.Health = Convert.ToInt32(TextHealth.Text);
-            Enemy.DmgMin = Convert.ToInt32(TextDmgMin.Text);
-            Enemy.DmgMax = Convert.ToInt32(TextDmgMax.Text);
+            sprite = new Uri(TextSprite.Text, UriKind.RelativeOrAbsolute);
+            health = Convert.ToInt32(TextHealth.Text);
+            dmgMin = Convert.ToInt32(TextDmgMin.Text);
+            dmgMax = Convert.ToInt32(TextDmgMax.Text);
         }
         catch (FormatException ex)
         {
             MessageBox.Show("Podano błędne dane!");
             return;
         }
+
+        Enemy.Sprite = sprite;
+        Enemy.Health = health;
+        Enemy.DmgMin = dmgMin;
+        Enemy.DmgMax = dmgMax;
         Enemy.Name = TextName.Text;
+        if (ComboElement.SelectedItem is Element element)
+            Enemy.Element = element;
+        else Enemy.Element = null;
         Enemy.Element = (Element) ComboElement.SelectedItem;
-        Enemy.Item = (Item) ComboPrzedmiot.SelectedItem;
+        if (ComboPrzedmiot.SelectedItem is Item item)
+            Enemy.Item = item;
+        else Enemy.Item = null;
         DialogResult = true;
     }
 

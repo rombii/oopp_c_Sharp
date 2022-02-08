@@ -21,9 +21,9 @@
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <Button Click="ButtonAddWpn_OnClick">Dodaj broń</Button>
-                    <Button>Dodaj przedmiot</Button>
-                    <Button>Edytuj zaznaczony</Button>
-                    <Button>Usuń zaznaczony</Button>
+                    <Button Click="ButtonAddItem_OnClick">Dodaj przedmiot</Button>
+                    <Button Click="ButtonEditItem_OnClick">Edytuj zaznaczony</Button>
+                    <Button Click="ButtonDeleteItem_OnClick">Usuń zaznaczony</Button>
                 </StackPanel>
                 <DataGrid x:Name="ItemTable"></DataGrid>
             </StackPanel>
@@ -31,9 +31,9 @@
         <TabItem Header="Elementy">
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
-                    <Button>Dodaj</Button>
-                    <Button>Edytuj zaznaczony</Button>
-                    <Button>Usuń zaznaczony</Button>
+                    <Button Click="ButtonAddElement_OnClick">Dodaj</Button>
+                    <Button Click="ButtonEditElement_OnClick">Edytuj zaznaczony</Button>
+                    <Button Click="ButtonDeleteElement_OnClick">Usuń zaznaczony</Button>
                 </StackPanel>
                 <DataGrid x:Name="ElementTable"></DataGrid>
             </StackPanel>

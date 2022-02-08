@@ -2,7 +2,9 @@
 using System.Windows.Controls;
 using System.Windows.Data;
 using Microsoft.EntityFrameworkCore;
-using project.Models;
+using project.Game;
+using Enemy = project.Models.Enemy;
+using Item = project.Game.Item;
 
 namespace project.Editor;
 
@@ -43,7 +45,7 @@ public partial class EditorWindow : Window
         ElementTable.Columns.Add(new DataGridTextColumn(){Header = "Słabe przeciw", Binding = new Binding("WeakToId")});
         ElementTable.Columns.Add(new DataGridTextColumn(){Header = "Mocne przeciw", Binding = new Binding("StrongToId")});
         ElementTable.AutoGenerateColumns = false;
-        ElementTable.ItemsSource = _context.Items.Local.ToObservableCollection();
+        ElementTable.ItemsSource = _context.Elements.Local.ToObservableCollection();
     }
 
     private void ButtonAddEnemy_OnClick(object sender, RoutedEventArgs e)
@@ -73,6 +75,56 @@ public partial class EditorWindow : Window
 
     private void ButtonAddWpn_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        var dialog = new AddItemWindow(_context.Elements.Local.ToObservableCollection(), Item.EType.Weapon);
+        if (dialog.ShowDialog() != true) return;
+        _context.Items.Add(dialog.Item);
+        _context.SaveChanges();
+        ItemTable.Items.Refresh();
+    }
+
+    private void ButtonAddItem_OnClick(object sender, RoutedEventArgs e)
+    {
+        var dialog = new AddItemWindow(_context.Elements.Local.ToObservableCollection(), Item.EType.Heal);
+        if (dialog.ShowDialog() != true) return;
+        _context.Items.Add(dialog.Item);
+        _context.SaveChanges();
+        ItemTable.Items.Refresh();
+    }
+
+    private void ButtonEditItem_OnClick(object sender, RoutedEventArgs e)
+    {
+        var dialog = new AddItemWindow(_context.Elements.Local.ToObservableCollection(),
+            (Models.Item) ItemTable.SelectedItem);
+        if (dialog.ShowDialog() != true) return;
+        _context.SaveChanges();
+        ItemTable.Items.Refresh();
+    }
+
+    private void ButtonDeleteItem_OnClick(object sender, RoutedEventArgs e)
+    {
+        _context.Items.Remove((Models.Item) ItemTable.SelectedItem);
+        _context.SaveChanges();
+        ItemTable.Items.Refresh();
+    }
+    private void ButtonAddElement_OnClick(object sender, RoutedEventArgs e)
+    {
+        var dialog = new AddElementWindow();
+        if (dialog.ShowDialog() != true) return;
+        _context.Elements.Add(dialog.Element);
+        _context.SaveChanges();
+        ElementTable.Items.Refresh();
+    }
+    private void ButtonEditElement_OnClick(object sender, RoutedEventArgs e)
+    {
+        var dialog = new AddElementWindow((Element) ElementTable.SelectedItem);
+        if (dialog.ShowDialog() != true) return;
+        _context.SaveChanges();
+        ElementTable.Items.Refresh();
+    }
+    private void ButtonDeleteElement_OnClick(object sender, RoutedEventArgs e)
+    {
+        _context.Elements.Remove((Element) ElementTable.SelectedItem);
+        _context.SaveChanges();
+        ElementTable.Items.Refresh();
     }
 }

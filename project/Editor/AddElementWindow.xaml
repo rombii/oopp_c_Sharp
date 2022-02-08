@@ -1,11 +1,11 @@
-﻿<Window x:Class="project.Editor.AddItemWindow"
+﻿<Window x:Class="project.Editor.AddElementWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:project.Editor"
         mc:Ignorable="d"
-        Title="AddItemWindow" Height="450" Width="800">
+        Title="AddElementWindow" Height="450" Width="800">
     <StackPanel Orientation="Vertical">
         <StackPanel Orientation="Horizontal">
             <Label>Nazwa</Label> <TextBox x:Name="TextName" Width="100"></TextBox>
@@ -13,13 +13,13 @@
         <StackPanel Orientation="Horizontal">
             <Label>Sprite</Label> <TextBox x:Name="TextSprite" Width="100"></TextBox>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" x:Name="ElementPanel">
-            <Label>Element</Label> <ComboBox x:Name="ComboElement"></ComboBox>
+        <StackPanel Orientation="Horizontal">
+            <Label>ID Słabe przeciw</Label> <TextBox x:Name="TextWeakToID" Width="100"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label x:Name="DmgHpLabel">Obrażenia</Label> <TextBox x:Name="TextDmgMin" Width="100"></TextBox><Label x:Name="DmgDash">-</Label><TextBox x:Name="TextDmgMax" Width="100"></TextBox>
+            <Label>ID Mocne przeciw</Label> <TextBox x:Name="TextStrongToID" Width="100"></TextBox>
         </StackPanel>
-        <Button Click="ButtonSave_OnClick" HorizontalAlignment="Left">Zapisz</Button>
-        <Button Click="ButtonCancel_OnClick" HorizontalAlignment="Left">Anuluj</Button>
+        <Button Click="ButtonSave_OnClick">Zapisz</Button>
+        <Button Click="ButtonCancel_OnClick">Zapisz</Button>
     </StackPanel>
 </Window>
