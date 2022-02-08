@@ -10,13 +10,13 @@ public abstract class Mob : Entity
     private int _maxHp;
     private protected GameWindow _game;
 
-    public void TakeDmg(int dmg)
+    public virtual void TakeDmg(int dmg)
     {
         if (Hp - dmg < 0) Hp = 0;
         else Hp -= dmg;
     }
 
-    public void Heal(int heal)
+    public virtual void Heal(int heal)
     {
         if (Hp + heal > _maxHp) Hp = _maxHp;
         else Hp += heal;

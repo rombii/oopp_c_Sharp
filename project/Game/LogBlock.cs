@@ -6,13 +6,15 @@ using System.Windows.Controls;
 
 namespace project.Game;
 
-public class LogBlock : GameWindow
+public class LogBlock : TextBlock
 {
     private LinkedList<String> stringList;
     private int maxStrings;
+    private protected GameWindow _game;
 
-    public LogBlock(int maxStrings)
+    public LogBlock(int maxStrings, GameWindow game)
     {
+        this._game = game;
         this.maxStrings = maxStrings;
         stringList = new LinkedList<string>();
     }
@@ -26,10 +28,10 @@ public class LogBlock : GameWindow
 
         Console.WriteLine(newLine);
         stringList.AddLast(newLine);
-        refreashText();
+        refreshText();
     }
 
-    public void refreashText()
+    public void refreshText()
     {
         StringBuilder newText = new StringBuilder();
         foreach (var text in stringList)
@@ -37,6 +39,6 @@ public class LogBlock : GameWindow
             newText.Append(text).Append("\n");
         }
 
-        LogBox.Text = newText.ToString();
+        _game.LogBox.Text = newText.ToString();
     }
 }

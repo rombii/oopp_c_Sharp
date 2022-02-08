@@ -19,6 +19,7 @@ public partial class GameWindow : Window
     private List<Models.Enemy> _enemies;
     private List<Models.Item> _items;
     private string path = Environment.CurrentDirectory.Remove(Environment.CurrentDirectory.Length - 25) + "/";
+    public LogBlock LogBlock;
     private void AddEnemy()
     {
         if (Player == null) return;
@@ -180,6 +181,7 @@ public partial class GameWindow : Window
         _context.Items.Load();
         _items = _context.Items.ToList();
 
+        LogBlock = new LogBlock(5, this);
         Player = new Player(new Uri(path + "res/img/player.png", UriKind.RelativeOrAbsolute), 100, this);
         var startWpn = new Item("Miecz", new Uri(path + "res/img/sword.png", UriKind.RelativeOrAbsolute), 5, 10);
         Player.Pickup(startWpn);
@@ -192,9 +194,20 @@ public partial class GameWindow : Window
         RedrawInv();
     }
 
+    public void SetGameOver()
+    {
+        this.endScreen.Visibility = Visibility.Visible;
+        
+    }
+
     private void GameWindow_OnKeyDown(object sender, KeyEventArgs e)
     {
-        if (Player == null) return;
+        if (Player == null)
+        {
+            SetGameOver();
+            if(e.Key == Key.Escape) this.Close();
+                return;
+        }
         switch (e.Key)
         {
             case Key.Up or Key.NumPad8:

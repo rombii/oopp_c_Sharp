@@ -37,27 +37,32 @@ public class Enemy : Mob
         return random.Next(DmgMin, DmgMax + 1);
     }
 
-    public void TakeDmg(int dmg, Element? attackingElement)
+    public virtual void TakeDmg(int dmg, Element? attackingElement)
     {
         if (Element != null && attackingElement != null)
         {
             if (Element.WeakToId == attackingElement.ElementId)
             {
-                //LogBox
+                _game.LogBlock.addLine("Skuteczne trafienie");
                 TakeDmg(dmg*2);
                 return;
             }
 
             if (Element.StrongToId == attackingElement.ElementId)
             {
-                //LogBox
+                _game.LogBlock.addLine("Nieskuteczne trafienie");
                 TakeDmg(dmg/2);
                 return;
             }
         }
         TakeDmg(dmg);
     }
-    //LogBox TakeDmg override
+
+    public override void TakeDmg(int dmg)
+    {
+        base.TakeDmg(dmg);
+        _game.LogBlock.addLine(Name + " został zaatakowany za " + dmg + " obrażeń");
+    }
     public override void Pickup(Item item)
     {
         if (Carrying == null) Carrying = item;
@@ -73,7 +78,7 @@ public class Enemy : Mob
             {
                 _game.Player = null;
                 _game.EntityTable[x, y] = new Entity();
-                //TODO _game.SetGameOver();
+                _game.SetGameOver();
             }
         }
         else if (_game.EntityTable[x, y] is Item)

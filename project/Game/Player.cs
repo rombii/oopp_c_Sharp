@@ -42,7 +42,18 @@ public class Player : Mob
         Inventory[EquippedItemId] = null;
     }
 
-    //TODO LogBox Heal & TakeDmg overrides
+    public override void Heal(int heal)
+    {
+        base.Heal(heal);
+        _game.LogBlock.addLine("Uleczono " + heal + " punktów zdrowia");
+    }
+
+    public override void TakeDmg(int dmg)
+    {
+        base.TakeDmg(dmg);
+        _game.LogBlock.addLine("Otrzymano " + dmg + " obrażeń");
+    }
+
     public override void Pickup(Item item)
     {
         for (var i = 0; i <= Inventory.Length; i++)
@@ -74,7 +85,7 @@ public class Player : Mob
                     ((Enemy) _game.EntityTable[x, y]).TakeDmg(EquippedItem.GetDmg(), EquippedItem.Element);
                     if (((Enemy) _game.EntityTable[x, y]).Hp == 0)
                     {
-                        //TODO LogBox
+                        _game.LogBlock.addLine("Pokonano "+((Enemy) _game.EntityTable[x, y]).Name);
                         if (((Enemy) _game.EntityTable[x, y]).Carrying == null)
                             _game.EntityTable[x, y] = new Entity();
                         else
