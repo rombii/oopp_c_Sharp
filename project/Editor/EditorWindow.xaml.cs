@@ -17,7 +17,7 @@ public partial class EditorWindow
         
         EnemyTable.Columns.Add(new DataGridTextColumn(){Header = "ID", Binding = new Binding("EnemyId")});
         EnemyTable.Columns.Add(new DataGridTextColumn(){Header = "Nazwa", Binding = new Binding("Name")});
-        EnemyTable.Columns.Add(new DataGridTextColumn(){Header = "Sprite", Binding = new Binding("Sprite.AbsolutePath")});
+        EnemyTable.Columns.Add(new DataGridTextColumn(){Header = "Sprite", Binding = new Binding("Sprite.AbsoluteUri")});
         EnemyTable.Columns.Add(new DataGridTextColumn(){Header = "Element", Binding = new Binding("Element.Name")});
         EnemyTable.Columns.Add(new DataGridTextColumn(){Header = "Zdrowie", Binding = new Binding("Health")});
         EnemyTable.Columns.Add(new DataGridTextColumn(){Header = "Obrażenia min", Binding = new Binding("DmgMin")});
@@ -30,7 +30,7 @@ public partial class EditorWindow
         _context.Items.Load();
         ItemTable.Columns.Add(new DataGridTextColumn(){Header = "ID", Binding = new Binding("ItemId")});
         ItemTable.Columns.Add(new DataGridTextColumn(){Header = "Nazwa", Binding = new Binding("Name")});
-        ItemTable.Columns.Add(new DataGridTextColumn(){Header = "Sprite", Binding = new Binding("SpriteUrl.AbsolutePath")});
+        ItemTable.Columns.Add(new DataGridTextColumn(){Header = "Sprite", Binding = new Binding("SpriteUrl.AbsoluteUri")});
         ItemTable.Columns.Add(new DataGridTextColumn(){Header = "Element", Binding = new Binding("Element.Name")});
         ItemTable.Columns.Add(new DataGridTextColumn(){Header = "Obrażenia min/Leczenie", Binding = new Binding("DmgMin")});
         ItemTable.Columns.Add(new DataGridTextColumn(){Header = "Obrażenia max/Leczenie", Binding = new Binding("DmgMax")});
@@ -41,7 +41,7 @@ public partial class EditorWindow
         _context.Elements.Load();
         ElementTable.Columns.Add(new DataGridTextColumn(){Header = "ID", Binding = new Binding("ElementId")});
         ElementTable.Columns.Add(new DataGridTextColumn(){Header = "Nazwa", Binding = new Binding("Name")});
-        ElementTable.Columns.Add(new DataGridTextColumn(){Header = "Sprite", Binding = new Binding("SpriteUrl.AbsolutePath")});
+        ElementTable.Columns.Add(new DataGridTextColumn(){Header = "Sprite", Binding = new Binding("SpriteUrl")});
         ElementTable.Columns.Add(new DataGridTextColumn(){Header = "Słabe przeciw", Binding = new Binding("WeakToId")});
         ElementTable.Columns.Add(new DataGridTextColumn(){Header = "Mocne przeciw", Binding = new Binding("StrongToId")});
         ElementTable.AutoGenerateColumns = false;

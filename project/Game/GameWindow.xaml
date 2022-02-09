@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         mc:Ignorable="d"
-        Title="GameWindow" Height="550" Width="800"
+        Title="Orcs vs Elves" Height="550" Width="800"
         KeyDown="GameWindow_OnKeyDown"
         Background="#282633"
         Foreground="White"

@@ -42,7 +42,7 @@ public partial class AddItemWindow
 
         TextName.Text = item.Name;
         if (item.SpriteUrl != null && item.SpriteUrl.IsAbsoluteUri)
-            TextSprite.Text = item.SpriteUrl.AbsolutePath;
+            TextSprite.Text = item.SpriteUrl.AbsoluteUri;
         else TextSprite.Text = "Uri nie jest Absolute";
         ComboElement.SelectedItem = item.Element;
         TextDmgMin.Text = item.DmgMin.ToString();

@@ -25,7 +25,7 @@ public partial class AddEnemyWindow
         {
             TextName.Text = enemy.Name;
             if (enemy.Sprite != null && enemy.Sprite.IsAbsoluteUri)
-                TextSprite.Text = enemy.Sprite.AbsolutePath;
+                TextSprite.Text = enemy.Sprite.AbsoluteUri;
             else TextSprite.Text = "Uri nie jest Absolute";
             ComboElement.SelectedItem = enemy.Element;
             TextHealth.Text = enemy.Health.ToString();
