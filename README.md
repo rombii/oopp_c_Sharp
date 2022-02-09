@@ -1,4 +1,4 @@
-# Projekt zaliczeniowy z przedmiotu: _**Progrmowanie obiektowe 2**_
+# Projekt zaliczeniowy z przedmiotu: _**Programowanie obiektowe 2**_
 
 # Temat projektu: Gra z wykorzystaniem bazy danych
 ## Skład grupy: Jakub Foltarz, Kamil Kondziołka
@@ -11,7 +11,7 @@
    1. Możliwość dodawania własnych przeciwników, przedmiotów i elementów do gry
    2. Możliwość edycji domyślnych rekordów lub ich usunięcia
    3. Prezentacja możliwości stworzenia gry przy użyciu WPF
-   4. Możliwość obserwacji działania połączenia c# z bazą danych
+   4. Możliwość obserwacji działania połączenia C# z bazą danych
 ### Interfejs:
 
    <details>
@@ -38,7 +38,7 @@
 ### Baza danych
 
 ####	Diagram ERD
-![image](https://i.gyazo.com/54da70ba618fac17c8643c30241f2932.png)
+![image](https://media.discordapp.net/attachments/348525763097788424/941052674076471358/unknown.png)
 
 ####	Skrypt do utworzenia struktury bazy danych
 
