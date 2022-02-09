@@ -10,16 +10,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace project.Game;
 
-public partial class GameWindow : Window
+public partial class GameWindow
 {
-    public Entity[,] EntityTable = new Entity[9, 9];
+    public readonly Entity[,] EntityTable = new Entity[9, 9];
     public Player? Player;
     public int MoveCounter;
-    private DBContext _context = new DBContext();
-    private List<Models.Enemy> _enemies;
-    private List<Models.Item> _items;
-    private string path = Environment.CurrentDirectory.Remove(Environment.CurrentDirectory.Length - 25) + "/";
-    public LogBlock LogBlock;
+    private readonly EntityDbContext _context = new EntityDbContext();
+    private readonly List<Models.Enemy> _enemies;
+    private readonly List<Models.Item> _items;
+    private readonly string _path = Environment.CurrentDirectory.Remove(Environment.CurrentDirectory.Length - 25) + "/";
+    public readonly LogBlock LogBlock;
     private void AddEnemy()
     {
         if (Player == null) return;
@@ -83,14 +83,18 @@ public partial class GameWindow : Window
         InvGrid.Children.Clear();
         for (var i = 0; i < 10; i++)
         {
-            var box = new Image();
-            box.Source = Player.Inventory[i] == null ? new BitmapImage(new Uri(path + "res/img/emptyO.png", UriKind.RelativeOrAbsolute)) : Player.Inventory[i].Sprite;
+            var box = new Image
+            {
+                Source = Player.Inventory[i] == null ? new BitmapImage(new Uri(_path + "res/img/emptyO.png", UriKind.RelativeOrAbsolute)) : Player.Inventory[i]?.Sprite
+            };
             if (i == Player.EquippedItemId)
             {
-                var border = new Border();
-                border.BorderBrush = new SolidColorBrush(Colors.White);
-                border.BorderThickness = new Thickness(2);
-                border.Child = box;
+                var border = new Border
+                {
+                    BorderBrush = new SolidColorBrush(Colors.White),
+                    BorderThickness = new Thickness(2),
+                    Child = box
+                };
                 InvGrid.Children.Add(border);
             }
             else InvGrid.Children.Add(box);
@@ -182,8 +186,8 @@ public partial class GameWindow : Window
         _items = _context.Items.ToList();
 
         LogBlock = new LogBlock(5, this);
-        Player = new Player(new Uri(path + "res/img/player.png", UriKind.RelativeOrAbsolute), 100, this);
-        var startWpn = new Item("Miecz", new Uri(path + "res/img/sword.png", UriKind.RelativeOrAbsolute), 5, 10);
+        Player = new Player(new Uri(_path + "res/img/player.png", UriKind.RelativeOrAbsolute), 100, this);
+        var startWpn = new Item("Miecz", new Uri(_path + "res/img/sword.png", UriKind.RelativeOrAbsolute), 5, 10);
         Player.Pickup(startWpn);
         HpText.Text = "HP: " + Player.Hp;
         ItemText.Text = Player.EquippedItem.Name + "\nObrażenia: " + Player.EquippedItem.DmgMin + "-" +
@@ -196,7 +200,7 @@ public partial class GameWindow : Window
 
     public void SetGameOver()
     {
-        this.endScreen.Visibility = Visibility.Visible;
+        this.EndScreen.Visibility = Visibility.Visible;
         
     }
 

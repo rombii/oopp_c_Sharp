@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:project.Game"
         mc:Ignorable="d"
         Title="GameWindow" Height="550" Width="800"
         KeyDown="GameWindow_OnKeyDown"
@@ -44,10 +43,10 @@
             <TextBlock x:Name="ItemText"></TextBlock>
             <Image x:Name="ElementImg" Visibility="Hidden" Width="32" Height="32" Margin="-105 -10 0 0"></Image>
         </StackPanel>
-        <Canvas Grid.Row="1" Grid.Column="1" ClipToBounds="False" Background="Black" Width="800" Height="550" Margin="-265 -180 0 0" Visibility="Hidden" Name="endScreen">
+        <Canvas Grid.Row="1" Grid.Column="1" ClipToBounds="False" Background="Black" Width="800" Height="550" Margin="-265 -180 0 0" Visibility="Hidden" Name="EndScreen">
             <Canvas Margin="265 180 0 0">
-                <TextBlock FontSize="64" TextAlignment="Center">💀<LineBreak></LineBreak>You Died</TextBlock>
-                <TextBlock TextAlignment="Center" FontSize="24" Margin="40 150 0 0">Press esc to exit</TextBlock>
+                <TextBlock FontSize="64" TextAlignment="Center">💀<LineBreak></LineBreak>Przegrałeś</TextBlock>
+                <TextBlock TextAlignment="Center" FontSize="24" Margin="40 150 0 0">Wciśnij esc aby wyjść</TextBlock>
             </Canvas>
         </Canvas>
     </Grid>

@@ -6,9 +6,9 @@ using Item = project.Models.Item;
 
 namespace project.Editor;
 
-public partial class AddItemWindow : Window
+public partial class AddItemWindow
 {
-    public Item Item;
+    public readonly Item Item;
     private AddItemWindow(IEnumerable<Element> elements)
     {
         InitializeComponent();
@@ -41,8 +41,9 @@ public partial class AddItemWindow : Window
         }
 
         TextName.Text = item.Name;
-        if (item.SpriteUrl.IsAbsoluteUri)
+        if (item.SpriteUrl != null && item.SpriteUrl.IsAbsoluteUri)
             TextSprite.Text = item.SpriteUrl.AbsolutePath;
+        else TextSprite.Text = "Uri nie jest Absolute";
         ComboElement.SelectedItem = item.Element;
         TextDmgMin.Text = item.DmgMin.ToString();
         TextDmgMax.Text = item.DmgMax.ToString();
@@ -58,7 +59,7 @@ public partial class AddItemWindow : Window
             dmgMin = Convert.ToInt32(TextDmgMin.Text);
             dmgMax = Item.Type == Game.Item.EType.Weapon ? Convert.ToInt32(TextDmgMax.Text) : dmgMin;
         }
-        catch (FormatException ex)
+        catch (FormatException)
         {
             MessageBox.Show("Podano błędne dane!");
             return;

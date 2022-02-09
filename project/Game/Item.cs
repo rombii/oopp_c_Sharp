@@ -4,7 +4,7 @@ namespace project.Game;
 
 public class Item : Entity
 {
-    private static int _counter = 0;
+    private static int _counter;
     private readonly int _itemId = _counter++;
 
     public enum EType

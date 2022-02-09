@@ -6,7 +6,7 @@ using Item = project.Models.Item;
 
 namespace project;
 
-public class DBContext : DbContext
+public class EntityDbContext : DbContext
 {
     public DbSet<Enemy> Enemies { get; set; }
     public DbSet<Item> Items { get; set; }

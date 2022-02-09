@@ -4,9 +4,9 @@ using project.Game;
 
 namespace project.Editor;
 
-public partial class AddElementWindow : Window
+public partial class AddElementWindow
 {
-    public Element Element;
+    public readonly Element Element;
     public AddElementWindow(Element? element = null)
     {
         InitializeComponent();
@@ -33,7 +33,7 @@ public partial class AddElementWindow : Window
                 strongToId = Convert.ToInt32(TextStrongToID.Text);
             else strongToId = -1;
         }
-        catch (FormatException ex)
+        catch (FormatException)
         {
             MessageBox.Show("Podano błędne dane!");
             return;

@@ -15,26 +15,4 @@ public class Item
     public int DmgMin { get; set; }
     public int DmgMax { get; set; }
     public Game.Item.EType Type { get; set; }
-
-    public Item()
-    {
-    }
-
-    public Item(string name, Uri spriteUrl, int dmgMin, int dmgMax, Element element)
-    {
-        Name = name;
-        SpriteUrl = spriteUrl;
-        DmgMin = dmgMin;
-        DmgMax = dmgMax;
-        Element = element;
-        Type = Game.Item.EType.Weapon;
-    }
-
-    public Item(string name, Uri spriteUrl, int healAmount)
-    {
-        Name = name;
-        SpriteUrl = spriteUrl;
-        DmgMin = DmgMax = healAmount;
-        Type = Game.Item.EType.Heal;
-    }
 }

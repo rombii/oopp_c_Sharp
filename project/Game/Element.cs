@@ -14,10 +14,11 @@ public class Element
     public int WeakToId { get; set; } = -1;
     public int StrongToId { get; set; } = -1;
 
-    public BitmapImage Sprite
+    public BitmapImage? Sprite
     {
         get
         {
+            if (SpriteUrl == null) return null;
             var sprite = new BitmapImage();
             sprite.BeginInit();
             sprite.UriSource = new Uri(SpriteUrl);

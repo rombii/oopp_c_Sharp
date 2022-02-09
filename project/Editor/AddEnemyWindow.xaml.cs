@@ -7,9 +7,9 @@ using Item = project.Models.Item;
 
 namespace project.Editor;
 
-public partial class AddEnemyWindow : Window
+public partial class AddEnemyWindow
 {
-    public Enemy Enemy;
+    public readonly Enemy Enemy;
     public AddEnemyWindow(IEnumerable<Element> elements, IEnumerable<Item> items, Enemy? enemy = null)
     {
         InitializeComponent();
@@ -24,7 +24,7 @@ public partial class AddEnemyWindow : Window
         else
         {
             TextName.Text = enemy.Name;
-            if (enemy.Sprite.IsAbsoluteUri)
+            if (enemy.Sprite != null && enemy.Sprite.IsAbsoluteUri)
                 TextSprite.Text = enemy.Sprite.AbsolutePath;
             else TextSprite.Text = "Uri nie jest Absolute";
             ComboElement.SelectedItem = enemy.Element;
@@ -47,7 +47,7 @@ public partial class AddEnemyWindow : Window
             dmgMin = Convert.ToInt32(TextDmgMin.Text);
             dmgMax = Convert.ToInt32(TextDmgMax.Text);
         }
-        catch (FormatException ex)
+        catch (FormatException)
         {
             MessageBox.Show("Podano błędne dane!");
             return;

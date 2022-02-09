@@ -8,7 +8,7 @@ public class Entity
     public BitmapImage Sprite { get; }
     public bool Empty { get; }
 
-    public Entity(Uri spriteUri)
+    protected Entity(Uri spriteUri)
     {
         Sprite = new BitmapImage();
         Sprite.BeginInit();

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Buffers.Text;
 using System.Linq;
 
 namespace project.Game;
@@ -7,7 +6,7 @@ namespace project.Game;
 public class Player : Mob
 {
     public Item?[] Inventory { get; } = new Item[10];
-    public int EquippedItemId { get; set; } = 0;
+    public int EquippedItemId { get; set; }
     public Item? EquippedItem
     {
         get => Inventory[EquippedItemId];
@@ -45,13 +44,13 @@ public class Player : Mob
     public override void Heal(int heal)
     {
         base.Heal(heal);
-        _game.LogBlock.addLine("Uleczono " + heal + " punktów zdrowia");
+        Game.LogBlock.AddLine("Uleczono " + heal + " punktów zdrowia");
     }
 
     public override void TakeDmg(int dmg)
     {
         base.TakeDmg(dmg);
-        _game.LogBlock.addLine("Otrzymano " + dmg + " obrażeń");
+        Game.LogBlock.AddLine("Otrzymano " + dmg + " obrażeń");
     }
 
     public override void Pickup(Item item)
@@ -74,7 +73,7 @@ public class Player : Mob
 
     public override void Interact(int x, int y)
     {
-        switch (_game.EntityTable[x, y])
+        switch (Game.EntityTable[x, y])
         {
             case Enemy when EquippedItem == null:
                 return;
@@ -82,14 +81,14 @@ public class Player : Mob
             {
                 if (EquippedItem.Type == Item.EType.Weapon)
                 {
-                    ((Enemy) _game.EntityTable[x, y]).TakeDmg(EquippedItem.GetDmg(), EquippedItem.Element);
-                    if (((Enemy) _game.EntityTable[x, y]).Hp == 0)
+                    ((Enemy) Game.EntityTable[x, y]).TakeDmg(EquippedItem.GetDmg(), EquippedItem.Element);
+                    if (((Enemy) Game.EntityTable[x, y]).Hp == 0)
                     {
-                        _game.LogBlock.addLine("Pokonano "+((Enemy) _game.EntityTable[x, y]).Name);
-                        if (((Enemy) _game.EntityTable[x, y]).Carrying == null)
-                            _game.EntityTable[x, y] = new Entity();
+                        Game.LogBlock.AddLine("Pokonano "+((Enemy) Game.EntityTable[x, y]).Name);
+                        if (((Enemy) Game.EntityTable[x, y]).Carrying == null)
+                            Game.EntityTable[x, y] = new Entity();
                         else
-                            _game.EntityTable[x, y] = ((Enemy) _game.EntityTable[x, y]).Carrying;
+                            Game.EntityTable[x, y] = ((Enemy) Game.EntityTable[x, y]).Carrying;
                     }
                 }
 
@@ -97,7 +96,7 @@ public class Player : Mob
             }
             case Item:
             {
-                var temp = (Item) _game.EntityTable[x, y];
+                var temp = (Item) Game.EntityTable[x, y];
                 Teleport(x, y);
                 Pickup(temp);
                 break;

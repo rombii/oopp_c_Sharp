@@ -8,9 +8,9 @@ using Item = project.Game.Item;
 
 namespace project.Editor;
 
-public partial class EditorWindow : Window
+public partial class EditorWindow
 {
-    private readonly DBContext _context = new();
+    private readonly EntityDbContext _context = new();
     public EditorWindow()
     {
         InitializeComponent();

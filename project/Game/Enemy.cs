@@ -4,7 +4,7 @@ namespace project.Game;
 
 public class Enemy : Mob
 {
-    private static int _counter = 0;
+    private static int _counter;
     public int Id { get; } = _counter++;
     public string? Name { get; }
     public Item? Carrying { get; private set; }
@@ -21,7 +21,7 @@ public class Enemy : Mob
         Carrying = item;
     }
 
-    public Enemy(Models.Enemy model, int x, int y, GameWindow game) : base(model.Sprite, model.Health, x, y, game)
+    public Enemy(Models.Enemy model, int x, int y, GameWindow game) : base(model.Sprite ?? throw new InvalidOperationException(), model.Health, x, y, game)
     {
         Name = model.Name;
         DmgMin = model.DmgMin;
@@ -37,20 +37,20 @@ public class Enemy : Mob
         return random.Next(DmgMin, DmgMax + 1);
     }
 
-    public virtual void TakeDmg(int dmg, Element? attackingElement)
+    public void TakeDmg(int dmg, Element? attackingElement)
     {
         if (Element != null && attackingElement != null)
         {
             if (Element.WeakToId == attackingElement.ElementId)
             {
-                _game.LogBlock.addLine("Skuteczne trafienie");
+                Game.LogBlock.AddLine("Skuteczne trafienie");
                 TakeDmg(dmg*2);
                 return;
             }
 
             if (Element.StrongToId == attackingElement.ElementId)
             {
-                _game.LogBlock.addLine("Nieskuteczne trafienie");
+                Game.LogBlock.AddLine("Nieskuteczne trafienie");
                 TakeDmg(dmg/2);
                 return;
             }
@@ -61,7 +61,7 @@ public class Enemy : Mob
     public override void TakeDmg(int dmg)
     {
         base.TakeDmg(dmg);
-        _game.LogBlock.addLine(Name + " został zaatakowany za " + dmg + " obrażeń");
+        Game.LogBlock.AddLine(Name + " został zaatakowany za " + dmg + " obrażeń");
     }
     public override void Pickup(Item item)
     {
@@ -71,19 +71,20 @@ public class Enemy : Mob
 
     public override void Interact(int x, int y)
     {
-        if (x == _game.Player.X && y == _game.Player.Y)
+        if (Game.Player == null) return;
+        if (x == Game.Player.X && y == Game.Player.Y)
         {
-            _game.Player.TakeDmg(GetDmg());
-            if (_game.Player.Hp == 0)
+            Game.Player.TakeDmg(GetDmg());
+            if (Game.Player.Hp == 0)
             {
-                _game.Player = null;
-                _game.EntityTable[x, y] = new Entity();
-                _game.SetGameOver();
+                Game.Player = null;
+                Game.EntityTable[x, y] = new Entity();
+                Game.SetGameOver();
             }
         }
-        else if (_game.EntityTable[x, y] is Item)
+        else if (Game.EntityTable[x, y] is Item)
         {
-            var temp = (Item) _game.EntityTable[x, y];
+            var temp = (Item) Game.EntityTable[x, y];
             Teleport(x, y);
             if (Carrying != null)
                 Drop(temp);

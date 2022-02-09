@@ -1,42 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace project.Game;
 
 public class LogBlock : TextBlock
 {
-    private LinkedList<String> stringList;
-    private int maxStrings;
-    private protected GameWindow _game;
+    private readonly LinkedList<string> _stringList;
+    private readonly int _maxStrings;
+    private readonly GameWindow _game;
 
     public LogBlock(int maxStrings, GameWindow game)
     {
-        this._game = game;
-        this.maxStrings = maxStrings;
-        stringList = new LinkedList<string>();
+        _game = game;
+        _maxStrings = maxStrings;
+        _stringList = new LinkedList<string>();
     }
 
-    public void addLine(String newLine)
+    public void AddLine(string newLine)
     {
-        while (stringList.Count >= maxStrings)
+        while (_stringList.Count >= _maxStrings)
         {
-            stringList.RemoveFirst();
+            _stringList.RemoveFirst();
         }
 
         Console.WriteLine(newLine);
-        stringList.AddLast(newLine);
-        refreshText();
+        _stringList.AddLast(newLine);
+        RefreshText();
     }
 
-    public void refreshText()
+    public void RefreshText()
     {
-        StringBuilder newText = new StringBuilder();
-        foreach (var text in stringList)
+        var newText = new StringBuilder();
+        foreach (string text in _stringList)
         {
-            newText.Append(text).Append("\n");
+            newText.Append(text).Append('\n');
         }
 
         _game.LogBox.Text = newText.ToString();
