@@ -10,8 +10,8 @@
 ### Funkcjonalności:
    1. Możliwość dodawania własnych przeciwników, przedmiotów i elementów do gry
    2. Możliwość edycji domyślnych rekordów lub ich usunięcia
-   3. Prezentacja możliwości stworzenia gry przy użyciu JavaFX
-   4. Możliwość obserwacji działania połączenia javy z bazą danych
+   3. Prezentacja możliwości stworzenia gry przy użyciu WPF
+   4. Możliwość obserwacji działania połączenia c# z bazą danych
 ### Interfejs:
 
    <details>
