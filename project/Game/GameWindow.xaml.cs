@@ -208,7 +208,6 @@ public partial class GameWindow
     {
         if (Player == null)
         {
-            SetGameOver();
             if(e.Key == Key.Escape) this.Close();
                 return;
         }
