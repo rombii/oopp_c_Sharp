@@ -110,4 +110,4 @@
     2. EF Core
     3. SQLite
 ### Diagram przypadków użycia
-![image](https://i.gyazo.com/99c91cc314cde420b35fd9a0b6ece1fa.png)
+![image](https://media.discordapp.net/attachments/348525763097788424/941625601238908938/xd.png)
